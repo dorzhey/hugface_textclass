@@ -1,12 +1,15 @@
 # hugface_textclass
 
-A Python tool for benchmarking text classification approaches (baseline feed-forward vs. Transformer fine-tuning).  
-It handles:
-- Automated data loading and optional text cleaning
-- Augmentation via nlpaug
-- Baseline NN with frozen Transformer embeddings
-- Full Transformer finetuning (Hugging Face Trainer)
-- Optional freezing of lower Transformer layers
+hugface_textclass is an open-source tool that streamlines text classification by integrating Hugging Face models, PyTorch, and data processing utilities. It enables quick experimentation with various approaches, from baseline feed-forward classifiers to full Transformer fine-tuning. The framework provides automatic dataset handling, optional text augmentation, and flexible training configurations, making it easy to benchmark new datasets efficiently.
+
+## Features
+- **Full support for Hugging Face models** (e.g., BERT, DistilBERT, GPT) with the `Trainer` API
+- **Baseline approach** using frozen Transformer embeddings with a simple MLP classifier
+- **Text augmentation** via `nlpaug` for boosting training diversity
+- **Data preprocessing** with automatic text cleaning and tokenization
+- **Flexible training setup** (adjustable batch size, learning rate, epochs, layer freezing)
+- **Easy-to-use CLI** for specifying models, hyperparameters, and data handling
+- **Fully open-source** and extendable for custom modifications
 
 ## Installation
 
@@ -57,3 +60,12 @@ python -m hugface_textclass --approach baseline \
     --output_dir ./outputs_baseline
 ```
 The tool automatically extracts embeddings for each sample from a pretrained Transformer, then trains a simple feed-forward classifier on those fixed embeddings.
+
+Development Notes
+The project is structured into three main components: data_utils.py (data handling), model_utils.py (model setup), and training_utils.py (training execution).
+cli.py orchestrates argument parsing and model execution.
+__main__.py enables execution as a Python module (python -m hugface_textclass).
+
+Contributions are welcome!
+
+This tool is designed to make text classification benchmarking fast and simple by leveraging modern libraries. Whether you're running a quick baseline or fine-tuning a Transformer, hugface_textclass provides a clean and efficient workflow.
