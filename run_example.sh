@@ -1,10 +1,16 @@
-#!/usr/bin/env bash
-# run_example.sh
 
+---
+
+## run_example.sh
+
+```bash
+#!/usr/bin/env bash
 # Example usage of hugface_textclass
+
+# Fine-tuning DistilBERT
 python -m hugface_textclass \
   --approach distilbert \
-  --train_file /path/to/my_dataset.csv \
+  --train_file data/my_dataset.csv \
   --text_col Tweet \
   --label_col Label \
   --clean_text \
